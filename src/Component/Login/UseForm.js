@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react'
+import { useState } from 'react'
 
 
-const useForm = () => {
+const useForm = (validate) => {
     // set up the value
     const[values, setValues] = useState({
         fullName: '',
@@ -9,7 +9,7 @@ const useForm = () => {
         password: '',
     })
     // use the state for handle error
-    const [errors, serErrors] = useState({})
+    const [errors, setErrors] = useState({})
 
     // create function when change the value then update
     const handleChange = e => {
@@ -23,8 +23,10 @@ const useForm = () => {
     // create handle submit function, prevent default pages to not keep refreshing 
     const handleSubmit = e => {
         e.preventDefault();
+
+        setErrors(validate(values))
     }
-    return {handleChange, values, handleSubmit};
+    return {handleChange, values, handleSubmit, errors};
 }
 
 export default useForm;
