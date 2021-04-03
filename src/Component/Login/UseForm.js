@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 
 
 const useForm = (validate) => {
@@ -10,6 +10,7 @@ const useForm = (validate) => {
     })
     // use the state for handle error
     const [errors, setErrors] = useState({})
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     // create function when change the value then update
     const handleChange = e => {
