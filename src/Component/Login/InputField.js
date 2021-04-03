@@ -10,7 +10,6 @@ const InputField = (props) => {
 
     return (
         <div>
-            <label>FullName</label>
             <input
                 placeholder={props.placeholder}
                 name={props.name}
@@ -18,7 +17,6 @@ const InputField = (props) => {
                 type={props.type}
                 value={props.value}
                 autoComplete={props.autoComplete}
-
             />
         </div>
     )

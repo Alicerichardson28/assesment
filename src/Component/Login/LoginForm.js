@@ -10,16 +10,19 @@ const LoginForm = () => {
     return (
         <div>
             <form>
+                <label>FullName</label>
                 <InputField 
                     name="fullName"
                     label="Full name"
                     onChange={handleChange}
                 />
+                <label>Password</label>
                 <InputField 
                     name="password"
                     label="Password"
                     onChange={handleChange}
                 />
+                <button type="submit">Login</button>
             </form>
         </div>
     )
