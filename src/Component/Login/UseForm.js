@@ -19,7 +19,12 @@ const useForm = () => {
             [name]: value
         })
     }
-    return {handleChange, values};
+
+    // create handle submit function, prevent default pages to not keep refreshing 
+    const handleSubmit = e => {
+        e.preventDefault();
+    }
+    return {handleChange, values, handleSubmit};
 }
 
 export default useForm;

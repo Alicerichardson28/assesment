@@ -2,10 +2,10 @@ import React from 'react'
 import useForm from './UseForm'
 
 const FormSignUp = () => {
-    const {handleChange, values} = useForm()
+    const { handleChange, values, handleSubmit } = useForm()
     return (
         <div className="form-content-right">
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
                 <h1>Sign-Up</h1>
                 <div className="form-inputs">
                     <label htmlFor="fullName" className="form-label">
