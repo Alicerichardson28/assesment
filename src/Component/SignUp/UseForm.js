@@ -1,7 +1,7 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 
 
-const useForm = (validate) => {
+const useForm = (callback, validate) => {
     // set up the value
     const[values, setValues] = useState({
         fullName: '',
@@ -26,7 +26,15 @@ const useForm = (validate) => {
         e.preventDefault();
 
         setErrors(validate(values))
-    }
+        setIsSubmitting(true)
+    };
+
+    // will show the errors if user do not put anything, do not allow users sign up till fill all information
+    useEffect(() => {
+        if(Object.keys(errors).length === 0 && isSubmitting) {
+            callback()
+        }
+    },[errors]);
     return {handleChange, values, handleSubmit, errors};
 }
 
